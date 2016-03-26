@@ -52,7 +52,7 @@
                 <li class="active"><a href="profile.jsp">Profile</a></li>
                 <li><a href="#">Gallery</a></li>
                 <li><a href="#">Popular</a></li>
-                <li><a href="#">Search</a></li>
+                <li><a href="search.jsp">Search</a></li>
                 <li><a href="#">Logout</a></li>
 
             </ul>

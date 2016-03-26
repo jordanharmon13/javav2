@@ -26,6 +26,9 @@ public class instaOperations extends HttpServlet {
         Instagram instagram = new Instagram(accessToken);
 
         HttpSession session = request.getSession();
+        
+        session.setAttribute("accessToken", accessToken);
+
 
         session.setAttribute(Constants.INSTAGRAM_OBJECT, instagram);
 
