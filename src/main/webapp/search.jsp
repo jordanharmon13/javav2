@@ -3,6 +3,7 @@
     Created on : Mar 26, 2016, 3:14:57 PM
     Author     : jorda
 --%>
+<%@page import="jdk.nashorn.internal.objects.NativeRegExp.test(Object, Object)"%>
 <%@page import="org.jinstagram.auth.oauth.InstagramService"%>
 <%@page import="instagram.Constants"%>
 <%@page import="org.jinstagram.auth.model.Verifier"%>
@@ -25,11 +26,12 @@
         response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
     }
-    double latitude = 48.858844;
+    /*double latitude = 48.858844;
     double longitude = 2.294351;
 
     MediaFeed feed = instagram.searchMedia(latitude, longitude); 
-    List<MediaFeedData> feeds = feed.getData();
+    List<MediaFeedData> feeds = feed.getData();*/
+    
 
 // Please see the MediaFeedData element for more usage. %>
 <!DOCTYPE html>
@@ -44,10 +46,17 @@
             <input type="text" placeholder="Search..." name="search">
             <input type="submit" for="search">
         </form>
-        <ul>   
+        <!--<ul>   
             <c:forEach var="result" items="${mediaFeeds}">
                 <li><a href="#">${result}</a></li>
                 </c:forEach>
-        </ul>
+        </ul>-->
+         <%
+            //List<MediaFeedData> mediaList = instagram.getUserFeeds();//.getData();
+            //out.println(test);
+            out.println("<img src='" + instagram.getCurrentUserInfo().getData().getProfilePicture() + "'>" );//.getId() );
+            out.println(instagram.getRecentMediaTags("jordanharmon13") );
+        %>
+        
     </body>
 </html>
