@@ -18,8 +18,8 @@
 
     InstagramService service = (InstagramService) session.getServletContext().getAttribute(Constants.INSTAGRAM_SERVICE);
 
-    String authorizationUrl = service.getAuthorizationUrl();
-    //String authorizationUrl = "test";
+    //String authorizationUrl = service.getAuthorizationUrl();
+    String authorizationUrl = "test";
 
 %>
 
