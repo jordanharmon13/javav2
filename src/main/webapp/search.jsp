@@ -27,9 +27,8 @@
     }
     double latitude = 48.858844;
     double longitude = 2.294351;
-    
-    
-    MediaFeed feed = instagram.searchMedia(latitude, longitude);
+
+    MediaFeed feed = instagram.searchMedia(latitude, longitude); 
     List<MediaFeedData> feeds = feed.getData();
 
 // Please see the MediaFeedData element for more usage. %>
@@ -46,9 +45,9 @@
             <input type="submit" for="search">
         </form>
         <ul>   
-            <c:forEach var="result" items="${feeds}">
-            <li><a href="#">${result}</a></li>
-            </c:forEach>
+            <c:forEach var="result" items="${mediaFeeds}">
+                <li><a href="#">${result}</a></li>
+                </c:forEach>
         </ul>
     </body>
 </html>
