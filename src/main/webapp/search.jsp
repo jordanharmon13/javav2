@@ -15,16 +15,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
+    Object objInstagram = session.getAttribute(Constants.INSTAGRAM_OBJECT);
+
+    Instagram instagram = null;
+
+    if (objInstagram != null) {
+        instagram = (Instagram) objInstagram;
+    } else {
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        return;
+    }
     double latitude = 48.858844;
     double longitude = 2.294351;
-
-    String code = (String) session.getAttribute("code");
-    InstagramService service = (InstagramService) request.getServletContext().getAttribute(Constants.INSTAGRAM_SERVICE);
-   
-    Verifier verifier = new Verifier(code);
-
-    Token accessToken = service.getAccessToken(verifier);
-    Instagram instagram = new Instagram(accessToken);
     
     
     MediaFeed feed = instagram.searchMedia(latitude, longitude);
