@@ -1,9 +1,18 @@
 <%-- 
     Document   : profile
     Created on : Mar 24, 2016, 1:49:36 PM
-    Author     : David
+    Author     : jorda
 --%>
 
+<%@page import="javax.tools.DocumentationTool.Location"%>
+<%@page import="org.jinstagram.entity.common.ImageData"%>
+<%@page import="org.jinstagram.entity.common.Images"%>
+<%@page import="org.jinstagram.entity.common.Likes"%>
+<%@page import="org.jinstagram.entity.common.Caption"%>
+<%@page import="org.jinstagram.entity.common.Comments"%>
+<%@page import="org.jinstagram.entity.users.feed.MediaFeedData"%>
+<%@page import="org.jinstagram.entity.users.feed.MediaFeed"%>
+<%@page import="java.util.List"%>
 <%@ page import="instagram.Constants" %>
 
 <%@ page import="org.jinstagram.Instagram" %>
@@ -25,6 +34,31 @@
     }
 
 
+MediaFeed mediaFeed = instagram.getUserFeeds();
+List<MediaFeedData> mediaFeeds = mediaFeed.getData();
+
+for (MediaFeedData mediaData : mediaFeeds) {
+    System.out.println("id : " + mediaData.getId());
+    System.out.println("created time : " + mediaData.getCreatedTime());
+    System.out.println("link : " + mediaData.getLink());
+    System.out.println("tags : " + mediaData.getTags().toString());
+    System.out.println("filter : " + mediaData.getImageFilter());
+    System.out.println("type : " + mediaData.getType());
+
+    System.out.println("-- Comments --");
+    Comments comments = mediaData.getComments();
+
+    System.out.println("-- Caption --");
+    Caption caption = mediaData.getCaption();
+
+    System.out.println("-- Likes --");
+    Likes likes = mediaData.getLikes();
+
+    System.out.println("-- Images --");
+    Images images = mediaData.getImages();
+
+    ImageData lowResolutionImg = images.getLowResolution();
+}
 %>
 <!DOCTYPE html>
 <html>

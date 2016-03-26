@@ -1,131 +1,53 @@
-<%@ page import="com.sachinhandiekar.examples.Constants" %>
-
-<%@ page import="org.jinstagram.Instagram" %>
-<%@ page import="org.jinstagram.entity.tags.TagMediaFeed" %>
-<%@ page import="org.jinstagram.entity.users.feed.MediaFeed" %>
-<%@ page import="org.jinstagram.entity.users.feed.MediaFeedData" %>
-<%@ page import="java.util.List" %>
-
+<%-- 
+    Document   : search
+    Created on : Mar 26, 2016, 3:14:57 PM
+    Author     : jorda
+--%>
+<%@page import="org.jinstagram.auth.oauth.InstagramService"%>
+<%@page import="instagram.Constants"%>
+<%@page import="org.jinstagram.auth.model.Verifier"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="org.jinstagram.auth.model.Token"%>
+<%@page import="org.jinstagram.Instagram"%>
+<%@page import="org.jinstagram.entity.users.feed.MediaFeedData"%>
+<%@page import="java.util.List"%>
+<%@page import="org.jinstagram.entity.users.feed.MediaFeed"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
     Object objInstagram = session.getAttribute(Constants.INSTAGRAM_OBJECT);
+
     Instagram instagram = null;
+
     if (objInstagram != null) {
         instagram = (Instagram) objInstagram;
     } else {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
     }
-%>
+    double latitude = 48.858844;
+    double longitude = 2.294351;
 
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">jInstagram</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="profile.jsp">Profile</a></li>
-                <li><a href="gallery.jsp">Gallery</a></li>
-                <li><a href="popular.jsp">Popular</a></li>
-                <li class="active"><a href="search.jsp">Search</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
+    MediaFeed feed = instagram.searchMedia(latitude, longitude); 
+    List<MediaFeedData> feeds = feed.getData();
 
-            </ul>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
-
-<!-- Page Content -->
-<div class="container">
-
-    <div class="row">
-
-        <div class="col-lg-12">
-            <h1 class="page-header">Search</h1>
-        </div>
-
-        <p>
-
-        <form action="search.jsp" method="post">
-            Tag # <input type="text" name="tag"/> &nbsp; <input type="submit" name="submit" value="Submit">
-
-            <input type="hidden" name="searchType" value="tag"/>
-
+// Please see the MediaFeedData element for more usage. %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Search</title>
+    </head>
+    <body>
+        <h1>Search Instagram</h1>
+        <form id="search" method="GET">
+            <input type="text" placeholder="Search..." name="search">
+            <input type="submit" for="search">
         </form>
-        </p>
-
-
-        <%
-            List<MediaFeedData> mediaList = null;
-            String errMessage = null;
-            int mediaCount = 0;
-            TagMediaFeed tagMediaFeed = null;
-            if (request.getParameter("submit") != null) {
-                if (request.getParameter("searchType").equals("tag")) {
-                    String tag = request.getParameter("tag");
-                    if (tag != null || tag.trim().length() != 0) {
-                        try {
-                            tagMediaFeed = instagram.getRecentMediaTags(tag);
-                            mediaList = tagMediaFeed.getData();
-                            MediaFeed recentMediaNextPage = instagram.getRecentMediaNextPage(tagMediaFeed.getPagination());
-                            int counter = 0;
-                            while (recentMediaNextPage.getPagination() != null && counter < Constants.MAX_PAGE_SIZE) {
-                                mediaList.addAll(recentMediaNextPage.getData());
-                                recentMediaNextPage = instagram.getRecentMediaNextPage(recentMediaNextPage.getPagination());
-                                counter++;
-                            }
-                            mediaCount = mediaList.size();
-                        } catch (Exception ex) {
-                            errMessage = ex.getMessage();
-                        }
-                    }
-                }
-            }
-        %>
-
-        <% if (errMessage != null) { %>
-        <div class="alert alert-danger" role="alert">
-            <%= errMessage %>
-        </div>
-        <% } %>
-
-
-        <%
-            if (mediaList != null) {
-        %>
-        <h3>Media Count :  <%=mediaCount%>
-        </h3>
-
-        <div class="alert alert-warning" role="alert">
-            <strong>Note :</strong>Max page size is set to <%= Constants.MAX_PAGE_SIZE %>
-
-        </div>
-        <%
-            for (MediaFeedData mediaFeedData : mediaList) {
-        %>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#">
-                <img class="img-responsive" src="<%=mediaFeedData.getImages().getLowResolution().getImageUrl()%>"
-                     alt="">
-            </a>
-        </div>
-
-        <% }
-        }
-        %>
-
-
-    </div>
-
-    <hr>
+        <ul>   
+            <c:forEach var="result" items="${mediaFeeds}">
+                <li><a href="#">${result}</a></li>
+                </c:forEach>
+        </ul>
+    </body>
+</html>
