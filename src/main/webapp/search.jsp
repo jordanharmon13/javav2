@@ -19,7 +19,7 @@
 
     Instagram instagram = new Instagram(accessToken);
 
-    MediaFeed feed = instagram.searchMedia(latitude, longitude); 
+    MediaFeed feed = instagram.searchMedia(latitude, longitude);
     List<MediaFeedData> feeds = feed.getData();
 
 // Please see the MediaFeedData element for more usage. %>
