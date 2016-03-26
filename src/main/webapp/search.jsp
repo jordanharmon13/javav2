@@ -3,6 +3,9 @@
     Created on : Mar 26, 2016, 3:14:57 PM
     Author     : jorda
 --%>
+<%@page import="org.jinstagram.auth.oauth.InstagramService"%>
+<%@page import="instagram.Constants"%>
+<%@page import="org.jinstagram.auth.model.Verifier"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="org.jinstagram.auth.model.Token"%>
 <%@page import="org.jinstagram.Instagram"%>
@@ -14,11 +17,16 @@
 <%
     double latitude = 48.858844;
     double longitude = 2.294351;
-    
-    Token accessToken = (Token) session.getAttribute("accessToken");
 
+    String code = (String) session.getAttribute("code");
+    InstagramService service = (InstagramService) request.getServletContext().getAttribute(Constants.INSTAGRAM_SERVICE);
+   
+    Verifier verifier = new Verifier(code);
+
+    Token accessToken = service.getAccessToken(verifier);
     Instagram instagram = new Instagram(accessToken);
-
+    
+    
     MediaFeed feed = instagram.searchMedia(latitude, longitude);
     List<MediaFeedData> feeds = feed.getData();
 
