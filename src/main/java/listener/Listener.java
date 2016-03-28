@@ -21,6 +21,7 @@ public class Listener implements ServletContextListener {
                 .apiKey(clientId)
                 .apiSecret(clientSecret)
                 .callback(callbackUrl)
+                .scope("public_content")
                 .build();
 
         sce.getServletContext().setAttribute(Constants.INSTAGRAM_SERVICE, service);
