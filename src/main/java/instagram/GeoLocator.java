@@ -14,8 +14,8 @@ import org.json.JSONObject;
  */
 public class GeoLocator {
    
-    public void displayJSON () {
+    public static void DisplayJSON (String[] args) {
         String mapsData = "https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME";
-        System.out.println(mapsData);
+        out.println(mapsData);
     }
 }
