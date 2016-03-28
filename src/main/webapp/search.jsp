@@ -11,6 +11,8 @@
 <%@page import="org.jinstagram.auth.model.Token"%>
 <%@page import="org.jinstagram.Instagram"%>
 <%@page import="org.jinstagram.entity.users.feed.MediaFeedData"%>
+<%@page import="java.util.List"%>
+<%@page import="org.jinstagram.entity.users.feed.MediaFeed"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%

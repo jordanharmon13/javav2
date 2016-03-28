@@ -35,8 +35,7 @@
     <div class="jumbotron">
         <h1>Demo</h1>
         <%= service%>
-        <p class="lead">A basic web application demonstrating the use of <a href="https://github.com/sachin-handiekar/jInstagram">jInstagram API</a></p>
-        <p><a href="<%= authorizationUrl%>"><img src="images/Instagram_normal.png"/></a>
+        <p><a href="<%= authorizationUrl%>">Click here to login to Instagram</a>
         </p>
     </div>
     </body>
