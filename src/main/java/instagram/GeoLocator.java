@@ -16,7 +16,7 @@ import org.json.JSONObject;
  */
 public class GeoLocator {
     
-    private String data;
+    private final String data;
     
     public String Location() {
         return data;
@@ -29,6 +29,5 @@ public class GeoLocator {
         double lat = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat");
         double lng = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng");
         data = "<br> " + lat + "<br>" + lng;
-        
     }
 }
