@@ -14,6 +14,9 @@
     </head>
     <body>
         <h1>Google Maps Info</h1>
-        <p><% GeoLocator myLngLat = new GeoLocator(); %></p>
+        <p><% GeoLocator myLngLat = new GeoLocator();
+            out.println(myLngLat.Location());
+            
+            %></p>
     </body>
 </html>

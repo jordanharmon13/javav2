@@ -15,6 +15,12 @@ import org.json.JSONObject;
  * @author jorda
  */
 public class GeoLocator {
+    
+    private String data;
+    
+    public String Location() {
+        return data;
+    }
    
     public GeoLocator() throws IOException {
         JsonCoder reader = new JsonCoder();
@@ -22,8 +28,7 @@ public class GeoLocator {
         JSONArray array1 = json.getJSONArray("results");
         double lat = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat");
         double lng = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng");
-
-        out.println(json);
-        out.println(lat + "<br>" + lng);
+        data = "<br> " + lat + "<br>" + lng;
+        
     }
 }
