@@ -14,6 +14,6 @@
     </head>
     <body>
         <h1>Google Maps Info</h1>
-        <p><% GeoLocator myClass = new GeoLocator() %></p>
+        <p><% GeoLocator myClass = new GeoLocator(); %></p>
     </body>
 </html>
