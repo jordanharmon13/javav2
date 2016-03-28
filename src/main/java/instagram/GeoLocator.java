@@ -18,7 +18,11 @@ public class GeoLocator {
     public GeoLocator() throws IOException {
         JsonCoder reader = new JsonCoder();
         JSONObject json = reader.getUrl("https://maps.googleapis.com/maps/api/geocode/json?address=678+w+1280+s+,+Provo,+UT&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME");
-        
+        double lat, lng;
+        lat = json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getLong("lat");
+        lng = json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getLong("lng");
+
         out.println(json);
+        out.println(lat + "<br>" + lng);
     }
 }
