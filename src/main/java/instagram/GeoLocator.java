@@ -24,7 +24,7 @@ public class GeoLocator {
    
     public GeoLocator() throws IOException {
         JsonCoder reader = new JsonCoder();
-        JSONObject json = reader.getUrl("https://maps.googleapis.com/maps/api/geocode/json?address=678+w+1280+s+,+Provo,+UT&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME");
+        JSONObject json = reader.getUrl("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME");
         JSONArray array1 = json.getJSONArray("results");
         double lat = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat");
         double lng = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng");
