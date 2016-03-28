@@ -10,10 +10,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Google Maps</title>
     </head>
     <body>
         <h1>Google Maps Info</h1>
-        <p><% GeoLocator myClass = new GeoLocator(); %></p>
+        <p><% GeoLocator myLngLat = new GeoLocator(); %></p>
     </body>
 </html>
