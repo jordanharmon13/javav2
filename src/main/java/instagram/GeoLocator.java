@@ -5,6 +5,7 @@
  */
 package instagram;
 
+import java.io.IOException;
 import static java.lang.System.out;
 import org.json.JSONObject;
 
@@ -14,8 +15,11 @@ import org.json.JSONObject;
  */
 public class GeoLocator {
    
-    public GeoLocator() {
-        String mapsData = "https://maps.googleapis.com/maps/api/geocode/json?address=678+w+1280+s+,+Provo,+UT&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME";
-        out.println(mapsData);
+    public GeoLocator() throws IOException {
+        JsonCoder reader = new JsonCoder();
+        JSONObject json = reader.getUrl("https://maps.googleapis.com/maps/api/geocode/json?address=678+w+1280+s+,+Provo,+UT&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME");
+        int lat = json.getJSONObject("location").getInt("lat");
+        int lng = json.getJSONObject("location").getInt("lng");
+        out.print(lat + "<br>" + lng);
     }
 }
