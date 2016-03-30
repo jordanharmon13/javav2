@@ -19,6 +19,7 @@
 <%@ page import="org.jinstagram.entity.users.feed.MediaFeedData" %>
 <%@ page import="java.util.List" %>
 
+<input type="text" placeholder="Search..." id="search">
 
 <%
     Object objInstagram = session.getAttribute(Constants.INSTAGRAM_OBJECT);
@@ -32,9 +33,6 @@
         return;
     }
 %>
-
-
-<input type="text" placeholder="Search..." id="search">
 
         <%
             //out.println( instagram.searchUser("jordanharmon13") );
