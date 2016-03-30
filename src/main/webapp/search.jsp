@@ -1,3 +1,4 @@
+<jsp:include page="header.jsp" />
 <%@page import="java.util.Set"%>
 <%@page import="instagram.InstaLoader"%>
 <%@page import="instagram.GeoLocator"%>
@@ -31,46 +32,11 @@
         return;
     }
 %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <script type="text/javascript" src="js/instafeed.js"></script>
 
-    </head>
-    <body>
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">jInstagram</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="profile.jsp">Profile</a></li>
-                <li class="active"><a href="gallery.jsp">Gallery</a></li>
-                <li><a href="popular.jsp">Popular</a></li>
-                <li><a href="search.jsp">Search</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
 
-            </ul>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
-<div id="instafeed"></div>
+<input type="text" placeholder="Search..." id="search">
 
         <%
-            out.println(test);
             //out.println( instagram.searchUser("jordanharmon13") );
             //out.println( instagram.searchUser("jordanharmon13").getUserList() );
             //UserFeed feed = instagram.searchUser("jordanharmon13");
@@ -90,11 +56,5 @@
             }
         %>
  
-    </div>
 
-
-</div>
-
-</body>
-
-</html>
+<jsp:include page="footer.jsp" />

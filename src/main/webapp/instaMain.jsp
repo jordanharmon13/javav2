@@ -3,6 +3,7 @@
     Created on : Mar 24, 2016, 1:37:31 PM
     Author     : jorda
 --%>
+<jsp:include page="header.jsp" />
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="org.jinstagram.auth.oauth.InstagramService" %>
@@ -38,7 +39,6 @@
         <p><a href="<%= authorizationUrl%>">Click here to login to Instagram</a>
         </p>
     </div>
-    </body>
-</html>
+<jsp:include page="footer.jsp" />
 
 

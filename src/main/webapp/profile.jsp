@@ -3,6 +3,7 @@
     Created on : Mar 24, 2016, 1:49:36 PM
     Author     : jorda
 --%>
+<jsp:include page="header.jsp" />
 
 <%@ page import="instagram.Constants" %>
 
@@ -26,39 +27,6 @@
 
 
 %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">jInstagram</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="profile.jsp">Profile</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Popular</a></li>
-                <li><a href="search.jsp">Search</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
 
 <!-- Page Content -->
 <div class="container">
@@ -99,8 +67,7 @@
     </div>
 
     <hr>
-    </body>
-</html>
+    <jsp:include page="footer.jsp" />
 
 
 
