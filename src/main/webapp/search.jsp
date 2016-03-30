@@ -68,7 +68,7 @@
 
         <%
             GeoLocator testGeo = new GeoLocator("678 w 1280 s provo, ut 84601 ");
-            out.println("test url " + testGeo.testUrl("678 w 1280 s provo, ut 84601 "));
+            out.println("test url " + testGeo.testUrl());
             //out.println( instagram.searchUser("jordanharmon13") );
             //out.println( instagram.searchUser("jordanharmon13").getUserList() );
             //UserFeed feed = instagram.searchUser("jordanharmon13");

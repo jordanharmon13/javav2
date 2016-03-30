@@ -49,7 +49,7 @@ public final class GeoLocator extends JsonCoder {
         }
     }
     
-    public String testUrl(String address) {
+    public String testUrl() {
         return testAddress;
     }
 }
