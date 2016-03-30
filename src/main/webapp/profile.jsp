@@ -54,8 +54,6 @@
                 <li><a href="#">Popular</a></li>
                 <li><a href="search.jsp">Search</a></li>
                 <li><a href="#">Logout</a></li>
-                <li><a href="search.jsp">GeoLocator</a></li>
-
             </ul>
         </div>
     </div>

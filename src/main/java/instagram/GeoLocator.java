@@ -13,9 +13,8 @@ public final class GeoLocator extends JsonCoder {
     
     
     public GeoLocator(String address) throws IOException {
-        mapData(getUrl( buildUrl("678 w 1280 s provo, ut 84601 ") ) );
+        mapData(getUrl( buildUrl(address) ) );
         out.println("test of url " + buildUrl("678 w 1280 s provo, ut 84601 "));
-        
     }
     
     public JSONObject getUrl(String url) throws IOException {
