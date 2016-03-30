@@ -38,10 +38,9 @@ public final class GeoLocator extends JsonCoder {
     public String buildUrl(String address) {
         address = address.replace(" ", "+");
         int addLength = address.length() - 1;
-        String addressString = Integer.toString(addLength);
+        String addressString = address.substring(addLength);
         if(addressString == "+"){
-            addressString = addressString.substring(0, addressString.length()-1);
-            address = addressString;
+            address = address.substring(0, address.length()-1);
             testAddress = address;
             return URL + address + KEY;
         } else {
