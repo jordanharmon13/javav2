@@ -67,7 +67,7 @@
 <div id="instafeed"></div>
 
         <%
-            GeoLocator testGeo = new GeoLocator("678 w 1280 s provo, ut 84601 "));
+            GeoLocator testGeo = new GeoLocator("678 w 1280 s provo, ut 84601 ");
             out.println("test url " + testGeo);
             //out.println( instagram.searchUser("jordanharmon13") );
             //out.println( instagram.searchUser("jordanharmon13").getUserList() );
