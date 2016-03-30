@@ -1,4 +1,4 @@
-<jsp:include page="commonheader.jsp" />
+<jsp:include page="header.jsp" />
         <h1>Hello Servlet</h1>
         <ul>
             <li><a href="login.jsp">Login</a></li>
