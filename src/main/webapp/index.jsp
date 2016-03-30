@@ -1,5 +1,4 @@
 <jsp:include page="commonheader.jsp" />
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%> 
         <h1>Hello Servlet</h1>
         <ul>
             <li><a href="login.jsp">Login</a></li>
