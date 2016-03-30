@@ -48,8 +48,6 @@
              ******************************************/
             InstaLoader insta = new InstaLoader(458131440);
             List<Map<String, String>> kk = insta.createMap();
-            GeoLocator geo = new GeoLocator("234 e 450 s provo, ut 84660 ");
-            out.println(geo.getAddress());
             // Test will display ALL photos from URL link
             for (int i = 0; i < kk.size();i++){              
                 out.println("<img src='" + kk.get(i).get("url") + "'>" + "<br>"); 
