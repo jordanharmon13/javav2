@@ -1,9 +1,5 @@
 package instagram;
 
-/**
- *
- * @author David
- */
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +25,7 @@ public class JsonCoder {
     return sb.toString();
   }
 
-  public static JSONObject getUrl(String url) throws IOException, JSONException {
+  public JSONObject getUrl(String url) throws IOException, JSONException {
     InputStream is = new URL(url).openStream();
     try {
       BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));

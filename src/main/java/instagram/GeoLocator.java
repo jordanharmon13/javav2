@@ -1,33 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package instagram;
 
 import java.io.IOException;
-import static java.lang.System.out;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-/**
- *
- * @author jorda
- */
-public class GeoLocator {
+public final class GeoLocator extends JsonCoder {
     
-    private final String data;
+    private static final String KEY = "&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME";
+    private static final String URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+    private double lat = 0;
+    private double lng = 0;
     
-    public String Location() {
-        return data;
+    
+    public GeoLocator(String address) throws IOException {
+        mapData(getUrl( buildUrl(address) ) );
     }
-   
-    public GeoLocator() throws IOException {
-        JsonCoder reader = new JsonCoder();
-        JSONObject json = reader.getUrl("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME");
-        JSONArray array1 = json.getJSONArray("results");
-        double lat = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat");
-        double lng = array1.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng");
-        data = "<br> " + lat + "<br>" + lng;
+    
+    public JSONObject getUrl(String url) throws IOException {
+        return super.getUrl(url);
+    }
+    
+    public void mapData(JSONObject json) {
+        lat = json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat");
+        lng = json.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng");
+    }
+    
+    public double getLat() {
+        return lat;
+    }
+    
+    public double getLng() {
+        return lng;
+    }
+    
+    public String buildUrl(String address) {
+        address = address.replace(" ", "+");
+        return URL + address + KEY;
     }
 }

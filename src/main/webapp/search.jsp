@@ -1,4 +1,6 @@
-<%@page import="instagram.JsonLoader"%>
+<%@page import="java.util.Set"%>
+<%@page import="instagram.InstaLoader"%>
+<%@page import="instagram.GeoLocator"%>
 <%@page import="com.fasterxml.jackson.databind.JsonNode"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Iterator"%>
@@ -18,28 +20,21 @@
 
 
 <%
-
     Object objInstagram = session.getAttribute(Constants.INSTAGRAM_OBJECT);
-
     Instagram instagram = null;
     String test = null;
     if (objInstagram != null) {
         instagram = (Instagram) objInstagram;
-        test = "test";
     } else {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
     }
-
-
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script type="text/javascript" src="js/instafeed.js"></script>
-
     </head>
     <body>
 <!-- Navigation -->
@@ -49,6 +44,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -59,3 +55,40 @@
             <ul class="nav navbar-nav">
                 <li><a href="profile.jsp">Profile</a></li>
                 <li class="active"><a href="gallery.jsp">Gallery</a></li>
+                <li><a href="popular.jsp">Popular</a></li>
+                <li><a href="search.jsp">Search</a></li>
+                <li><a href="logout.jsp">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<div id="instafeed"></div>
+
+        <%
+            //out.println( instagram.searchUser("jordanharmon13") );
+            //out.println( instagram.searchUser("jordanharmon13").getUserList() );
+            //UserFeed feed = instagram.searchUser("jordanharmon13");
+            //List<UserFeedData> testt = instagram.searchUser("jordanharmon13").getUserList();
+            /*******************************************
+             * This can take one of two variables
+             * UserID which needs to be an int
+             * UserName which needs to be a String
+             ******************************************/
+            InstaLoader insta = new InstaLoader(458131440);
+            List<Map<String, String>> kk = insta.createMap();
+            // Test will display ALL photos from URL link
+            for (int i = 0; i < kk.size();i++){              
+                out.println("<img src='" + kk.get(i).get("url") + "'>" + "<br>"); 
+            }
+        %>
+ 
+    </div>
+
+
+</div>
+
+</body>
+
+</html>
