@@ -1,6 +1,7 @@
 package instagram;
 
 import java.io.IOException;
+import static java.lang.System.out;
 import org.json.JSONObject;
 
 public final class GeoLocator extends JsonCoder {
@@ -13,6 +14,8 @@ public final class GeoLocator extends JsonCoder {
     
     public GeoLocator(String address) throws IOException {
         mapData(getUrl( buildUrl(address) ) );
+        out.println("test of url " + buildUrl("678 w 1280 s provo, ut 84601 "));
+        
     }
     
     public JSONObject getUrl(String url) throws IOException {
@@ -34,6 +37,13 @@ public final class GeoLocator extends JsonCoder {
     
     public String buildUrl(String address) {
         address = address.replace(" ", "+");
+        int addLength = address.length() - 1;
+        String addressString = Integer.toString(addLength);
+        if(addressString == "+"){
+            addressString = addressString.substring(0, addressString.length()-1);
+            address = addressString;
+            return URL + address + KEY;
+        }
         return URL + address + KEY;
     }
 }

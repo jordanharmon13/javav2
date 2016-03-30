@@ -67,6 +67,7 @@
 <div id="instafeed"></div>
 
         <%
+            out.println("test " + GeoLocator();
             //out.println( instagram.searchUser("jordanharmon13") );
             //out.println( instagram.searchUser("jordanharmon13").getUserList() );
             //UserFeed feed = instagram.searchUser("jordanharmon13");
