@@ -1,4 +1,3 @@
-<%@page import="java.util.Set"%>
 <%@page import="instagram.InstaLoader"%>
 <%@page import="instagram.GeoLocator"%>
 <%@page import="com.fasterxml.jackson.databind.JsonNode"%>
