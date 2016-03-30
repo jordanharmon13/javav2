@@ -34,9 +34,11 @@ public final class GeoLocator extends JsonCoder {
     public double getLng() {
         return lng;
     }
+    
     public String getAddress(){
         return addressTest;
     }
+    
     public String buildUrl(String address) {
         address = address.replace(" ", "+");
         if ("+".equals(address.substring(address.length()-1))) 

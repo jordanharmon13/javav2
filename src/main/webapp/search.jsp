@@ -1,3 +1,4 @@
+<%@page import="java.util.Set"%>
 <%@page import="instagram.InstaLoader"%>
 <%@page import="instagram.GeoLocator"%>
 <%@page import="com.fasterxml.jackson.databind.JsonNode"%>
@@ -24,6 +25,7 @@
     String test = null;
     if (objInstagram != null) {
         instagram = (Instagram) objInstagram;
+        test = "test";
     } else {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
@@ -34,6 +36,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <script type="text/javascript" src="js/instafeed.js"></script>
+
     </head>
     <body>
 <!-- Navigation -->
@@ -66,8 +70,7 @@
 <div id="instafeed"></div>
 
         <%
-            GeoLocator testGeo = new GeoLocator("678 w 1280 s provo, ut 84601 ");
-            out.println("test url " + testGeo.testUrl());
+            out.println(test);
             //out.println( instagram.searchUser("jordanharmon13") );
             //out.println( instagram.searchUser("jordanharmon13").getUserList() );
             //UserFeed feed = instagram.searchUser("jordanharmon13");
@@ -79,6 +82,8 @@
              ******************************************/
             InstaLoader insta = new InstaLoader(458131440);
             List<Map<String, String>> kk = insta.createMap();
+            GeoLocator geo = new GeoLocator("234 e 450 s provo, ut 84660 ");
+            out.println(geo.getAddress());
             // Test will display ALL photos from URL link
             for (int i = 0; i < kk.size();i++){              
                 out.println("<img src='" + kk.get(i).get("url") + "'>" + "<br>"); 
