@@ -19,7 +19,7 @@
 <%@ page import="org.jinstagram.entity.users.feed.MediaFeedData" %>
 <%@ page import="java.util.List" %>
 
-<input type="text" placeholder="Search..." id="search">
+<input type="text" placeholder="Search..." id="search"><br>
 
 <%
     Object objInstagram = session.getAttribute(Constants.INSTAGRAM_OBJECT);
