@@ -10,12 +10,12 @@ public final class GeoLocator extends JsonCoder {
     private static final String URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
     private double lat = 0;
     private double lng = 0;
-    public String testAddress = "678 w 1280 s provo, ut 84601 ";
+    public String testerAddress = "678 w 1280 s provo, ut 84601 ";
+    private String testAddress = "";
     
     
-    public GeoLocator(String address) throws IOException, Exception {
+    public GeoLocator(String address) throws IOException {
         mapData(getUrl( buildUrl(address) ) );
-        out.println("test of url " + buildUrl(testAddress));
     }
     
     public JSONObject getUrl(String url) throws IOException {
@@ -35,15 +35,21 @@ public final class GeoLocator extends JsonCoder {
         return lng;
     }
     
-    public String buildUrl(String address) throws Exception {
+    public String buildUrl(String address) {
         address = address.replace(" ", "+");
         int addLength = address.length() - 1;
         String addressString = Integer.toString(addLength);
         if(addressString == "+"){
             addressString = addressString.substring(0, addressString.length()-1);
             address = addressString;
+            testAddress = address;
+            return URL + address + KEY;
+        } else {
             return URL + address + KEY;
         }
-        return URL + address + KEY;
+    }
+    
+    public String testUrl(String address) {
+        return testAddress;
     }
 }
