@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author David
+ * @author jorda
  */
 @WebServlet(name = "LoadPhotos", urlPatterns = {"/LoadPhotos"})
 public class LoadPhotos extends HttpServlet {
