@@ -19,7 +19,6 @@
 <%@ page import="org.jinstagram.entity.users.feed.MediaFeedData" %>
 <%@ page import="java.util.List" %>
 
-<input type="text" placeholder="Search..." id="search"><br>
 
 <%
     Object objInstagram = session.getAttribute(Constants.INSTAGRAM_OBJECT);
@@ -33,8 +32,27 @@
         return;
     }
 %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <script type="text/javascript" src="js/instafeed.js"></script>
+
+    </head>
+    <body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- /.container -->
+<div id="instafeed"></div>
+    <form action="LoadPhotos" method="post"> 
+        <br/>Zip code:<input type="text" name="location"> 
+        <br/><input type="submit" value="Submit"> 
+    </form> 
+</form>
 
         <%
+            out.println(test);
             //out.println( instagram.searchUser("jordanharmon13") );
             //out.println( instagram.searchUser("jordanharmon13").getUserList() );
             //UserFeed feed = instagram.searchUser("jordanharmon13");
@@ -45,12 +63,12 @@
              * UserName which needs to be a String
              ******************************************/
             InstaLoader insta = new InstaLoader(458131440);
-            List<Map<String, String>> kk = insta.createMap();
-            // Test will display ALL photos from URL link
-            for (int i = 0; i < kk.size();i++){              
-                out.println("<img src='" + kk.get(i).get("url") + "'>" + "<br>"); 
-            }
         %>
- 
 
+
+</div>
+
+</body>
+
+</html>
 <jsp:include page="footer.jsp" />
