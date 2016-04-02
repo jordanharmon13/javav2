@@ -42,8 +42,8 @@ public class LoadPhotos extends HttpServlet {
             
             String geoString = request.getParameter("location"); 
             
-            //GeoLocator geo = new GeoLocator(geoString);
-            //double lat, lng;
+            GeoLocator geo = new GeoLocator(geoString);
+            double lat, lng;
 
 
             /*for(int i = 0; i < map.size(); i++) {              
