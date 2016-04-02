@@ -42,7 +42,7 @@ public class LoadPhotos extends HttpServlet {
             
             String geoString = request.getParameter("location"); 
             
-            GeoLocator geo = new GeoLocator(geoString);
+            //GeoLocator geo = new GeoLocator(geoString);
             double lat, lng;
 
 

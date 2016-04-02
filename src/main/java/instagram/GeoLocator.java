@@ -1,9 +1,12 @@
 package instagram;
 
 import java.io.IOException;
-import static java.lang.System.out;
 import org.json.JSONObject;
 
+/**
+ *
+ * @author David
+ */
 public final class GeoLocator extends JsonCoder {
     
     private static final String KEY = "&key=AIzaSyDHq6WWAdp5owMOw4PF3sojyKdK87PI5ME";
