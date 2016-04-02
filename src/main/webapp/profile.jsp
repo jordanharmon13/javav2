@@ -61,7 +61,6 @@
 
         <p>Media Count : <%=userInfoData.getCounts().getMedia()%>
         </p>
-        ${access_token}
         </p>
 
 

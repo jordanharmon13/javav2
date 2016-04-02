@@ -21,7 +21,7 @@ public final class InstaLoader extends JsonCoder {
     private String url = null;
     Iterator<String> keyss = null;
     private static final String URL_ID = "https://api.instagram.com/v1/users/%s/media/recent/";
-    private static final String KEY = "?client_id=8e92bafbcdcc4c849fdca959b0daba81&access_token=3023452426.cb8f2be.ce6db1e84e604242a3c8ed9dfc6d2264&count=-1";
+    private static final String KEY = "?client_id=8e92bafbcdcc4c849fdca959b0daba81&access_token=458131440.8e92baf.a77b5a588ff44d6faeff4dec24cbd6a2&count=-1";
     
     // Constructor for userid
     public InstaLoader(int userid) throws IOException {
