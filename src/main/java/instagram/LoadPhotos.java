@@ -53,8 +53,9 @@ public class LoadPhotos extends HttpServlet {
                if( geo.checkLng(lng) && geo.checklat(lat) )
                    searchMap.add(map.get(i));  
             }
-            request.setAttribute("map", searchMap);
-            request.getRequestDispatcher("photos.jsp").forward(request, response);
+            //request.setAttribute("map", searchMap);
+            //request.getRequestDispatcher("photos.jsp").forward(request, response);
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -62,6 +63,9 @@ public class LoadPhotos extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoadPhotos at " + request.getContextPath() + "</h1>");
+            for (int i = 0; i < searchMap.size(); i++) {
+                out.println(searchMap.get(i));
+            }
             out.println("</body>");
             out.println("</html>");
         }

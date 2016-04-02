@@ -32,9 +32,7 @@
         return;
     }
 %>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- /.container -->
-<div id="instafeed"></div>
     <form action="LoadPhotos" method="post"> 
         <br/>Zip code:<input type="text" name="location"> 
         <br/><input type="submit" value="Search"> 
