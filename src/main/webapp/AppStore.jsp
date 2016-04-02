@@ -16,18 +16,18 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="images/geo-photo.png" alt="Image">
+            <img src="images/geo-photo.PNG" alt="Image"/>
             <div class="carousel-caption">
-                <h3>Sell $</h3>
-                <p>Money Money.</p>
+                <h3>Search for your photos by location</h3>
+                <p>Enjoy the extra feature of searching by location.</p>
             </div>      
         </div>
 
         <div class="item">
-            <img src="images/profile.png" alt="Image">
+            <img src="images/profile.PNG" alt="Image"/>
             <div class="carousel-caption">
-                <h3>More Sell $</h3>
-                <p>Lorem ipsum...</p>
+                <h3>Your Instagram Profile</h3>
+                <p>See all your Instagram information.</p>
             </div>      
         </div>
     </div>
