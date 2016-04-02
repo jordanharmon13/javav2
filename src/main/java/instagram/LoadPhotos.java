@@ -42,19 +42,19 @@ public class LoadPhotos extends HttpServlet {
             
             String geoString = request.getParameter("location"); 
             
-            //GeoLocator geo = new GeoLocator(geoString);
+            GeoLocator geo = new GeoLocator(geoString);
             double lat, lng;
 
 
-            /*for(int i = 0; i < map.size(); i++) {              
+            for(int i = 0; i < map.size(); i++) {              
                lat = Double.parseDouble(map.get(i).get("latitude"));
                lng = Double.parseDouble(map.get(i).get("longitude"));
                
                if( geo.checkLng(lng) && geo.checklat(lat) )
                    searchMap.add(map.get(i));  
-            }*/
-            //request.setAttribute("map", searchMap);
-            //request.getRequestDispatcher("photos.jsp").forward(request, response);
+            }
+            request.setAttribute("map", searchMap);
+            request.getRequestDispatcher("photos.jsp").forward(request, response);
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -66,7 +66,7 @@ public class LoadPhotos extends HttpServlet {
             /*for (int i = 0; i < searchMap.size(); i++) {
                 out.println(searchMap.get(i));
             }*/
-            out.println(geoString);
+            //out.println(geoString);
             out.println("</body>");
             out.println("</html>");
         }
