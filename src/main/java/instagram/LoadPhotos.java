@@ -35,10 +35,10 @@ public class LoadPhotos extends HttpServlet {
             
                         
 
-            //InstaLoader insta = new InstaLoader(458131440);
+            InstaLoader insta = new InstaLoader(458131440);
 
-            //List<Map<String, String>> searchMap = new ArrayList<>();
-            //List<Map<String, String>> map = insta.getList();
+            List<Map<String, String>> searchMap = new ArrayList<>();
+            List<Map<String, String>> map = insta.getList();
             
             String geoString = request.getParameter("location"); 
             
