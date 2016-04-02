@@ -32,24 +32,13 @@
         return;
     }
 %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <script type="text/javascript" src="js/instafeed.js"></script>
-
-    </head>
-    <body>
-<!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- /.container -->
 <div id="instafeed"></div>
     <form action="LoadPhotos" method="post"> 
         <br/>Zip code:<input type="text" name="location"> 
-        <br/><input type="submit" value="Submit"> 
+        <br/><input type="submit" value="Search"> 
     </form> 
-</form>
 
         <%
             out.println(test);
@@ -65,10 +54,4 @@
             InstaLoader insta = new InstaLoader(458131440);
         %>
 
-
-</div>
-
-</body>
-
-</html>
 <jsp:include page="footer.jsp" />
